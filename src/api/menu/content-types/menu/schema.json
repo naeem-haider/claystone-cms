@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "navigations",
+  "collectionName": "menus",
   "info": {
-    "singularName": "navigation",
-    "pluralName": "navigations",
-    "displayName": "Navigation"
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Navigation Bar"
   },
   "options": {
     "draftAndPublish": true
@@ -21,12 +21,17 @@
         "audios"
       ]
     },
-    "logoText": {
+    "logoUrl": {
       "type": "string"
     },
-    "navLink": {
+    "navMenu": {
       "type": "component",
-      "component": "shared.navigation",
+      "component": "shared.menu",
+      "repeatable": true
+    },
+    "ctaBtn": {
+      "type": "component",
+      "component": "shared.cta-button",
       "repeatable": true
     }
   }

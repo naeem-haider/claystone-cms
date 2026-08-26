@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedButton extends Struct.ComponentSchema {
+  collectionName: 'components_shared_buttons';
+  info: {
+    displayName: 'button';
+  };
+  attributes: {
+    ctaButton: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -8,6 +18,20 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedNavigation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_navigations';
+  info: {
+    displayName: 'navigation';
+  };
+  attributes: {
+    ctaButton: Schema.Attribute.Component<'shared.button', true>;
+    label: Schema.Attribute.String;
+    navLink: Schema.Attribute.Component<'shared.sub-links', true>;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -62,14 +86,25 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSubLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sub_links';
+  info: {
+    displayName: 'subLinks';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'shared.button': SharedButton;
       'shared.media': SharedMedia;
+      'shared.navigation': SharedNavigation;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.sub-links': SharedSubLinks;
     }
   }
 }

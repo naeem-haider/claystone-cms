@@ -1,0 +1,70 @@
+{
+  "kind": "singleType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "Hero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "blocks"
+    },
+    "backgroundType": {
+      "type": "enumeration",
+      "enum": [
+        "model3d",
+        "video",
+        "image"
+      ]
+    },
+    "model3dUrl": {
+      "type": "string"
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "primaryCta": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "secondaryCta": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "heroStat": {
+      "type": "component",
+      "component": "shared.stats",
+      "repeatable": true
+    },
+    "scrollIndicatorText": {
+      "type": "string"
+    }
+  }
+}
